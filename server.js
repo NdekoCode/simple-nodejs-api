@@ -1,19 +1,9 @@
 import express from "express";
-import mongoose from "mongoose";
-import fs from "fs";
-
+import { httpServerConfig } from "./config/httpConfig";
+import { dbConfig } from "./config/dbConfig";
 const app = express();
-mongoose.connect(
-  "mongodb://localhost:27017",
-  {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  },
-  (error, result) => {
-    if (error) throw error;
-    console.log("MongoDB connected", result);
-  }
-);
+httpServerConfig(app);
+dbConfig();
 app.get("/", (req, res) => {
   res.end("hello");
 });
