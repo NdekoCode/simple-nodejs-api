@@ -1,16 +1,15 @@
 import express from "express";
 import { httpServerConfig } from "./config/httpConfig";
 import { dbConfig } from "./config/dbConfig";
-import { router } from "./controllers/PostsController";
+import { router } from "./controllers/QuotesController";
 const app = express();
 httpServerConfig(app);
 dbConfig();
-const postsRoutes = router;
-
+const quotesRouter = router;
 // MIDDLEWARE
-// A chaque fois que l'on va appeler la route "/" alors appele postsRoutes
-app.use("/", postsRoutes);
+// QUand l'utilisateur va vouloir aller sur l'url "/quotes" alors appele postsRoutes
 
+app.use("/quotes", quotesRouter);
 // ON fait ecouter notre serveur sur le port 3500
 app.listen(process.env.PORT || 3500, () => {
   console.log("Server started... on http://localhost:3500");
