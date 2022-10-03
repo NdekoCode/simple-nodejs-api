@@ -7,6 +7,7 @@ specifiers:
   mongoose: ^6.6.3
   morgan: ^1.10.0
   nodemon: ^2.0.20
+  slugify: ^1.6.5
 
 dependencies:
   axios: 0.27.2
@@ -15,6 +16,7 @@ dependencies:
   mongoose: 6.6.3
   morgan: 1.10.0
   nodemon: 2.0.20
+  slugify: 1.6.5
 
 packages:
 
@@ -789,6 +791,11 @@ packages:
     engines: {node: '>=8.10.0'}
     dependencies:
       semver: 7.0.0
+    dev: false
+
+  /slugify/1.6.5:
+    resolution: {integrity: sha512-8mo9bslnBO3tr5PEVFzMPIWwWnipGS0xVbYf65zxDqfNwmzYn1LpiKNrR6DlClusuvo+hDHd1zKpmfAe83NQSQ==}
+    engines: {node: '>=8.0.0'}
     dev: false
 
   /smart-buffer/4.2.0:
