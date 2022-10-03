@@ -7,13 +7,13 @@ export const router = Router();
 // On partira de la racine du site,cette route ici "/" est equivalent à http://localhost:3500/quotes
 router.get("/", (req, res) => {
   // On veut recuperer toutes les citations qui se trouvent dans la base de données
-  QuoteModel.find((error, posts) => {
+  QuoteModel.find((error, quotes) => {
     if (error) {
       console.log("Pas de quotes trouver ");
       return error;
     }
     // On retournes ces informations au format JSON
-    res.json(posts);
+    res.json({ quotes });
   });
 });
 // POST: est equivalent à http://localhost:3500/quotes en POST
