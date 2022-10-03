@@ -3,6 +3,8 @@ import bodyParser from "body-parser";
 import { httpServerConfig } from "./config/httpConfig";
 import { dbConfig } from "./config/dbConfig";
 import { router } from "./controllers/QuotesController";
+import mongoose from "mongoose";
+
 const app = express();
 httpServerConfig(app);
 dbConfig();

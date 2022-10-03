@@ -124,3 +124,29 @@ router.put("/update/:id", (req, res) => {
     }
   );
 });
+
+// DELETE
+router.delete("/delete/:id", (req, res) => {
+  if (!isEmpty(req.params.id) && isValidObjectId(req.params.id)) {
+    QuoteModel.findByIdAndRemove(req.params.id, (error, result) => {
+      if (error) {
+        return res.status(400).send({
+          statusCode: 400,
+          alert: "Une erreur est survenus lors de la suppression des données",
+          type: "danger",
+        });
+      }
+      return res.status(200).send({
+        statusCode: 200,
+        alert: "Données supprimer avec succés",
+        type: "success",
+      });
+    });
+  } else {
+    return res.status(200).send({
+      statusCode: 400,
+      alert: "Une erreur est survenus lors de la suppression des données",
+      type: "danger",
+    });
+  }
+});
